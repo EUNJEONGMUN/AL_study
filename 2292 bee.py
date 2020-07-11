@@ -3,15 +3,15 @@ def bee(n):
         return 1
     count = 0
     while True:
-        start = (6*count*(count+1)/2)+2
-        finish  = (6*(count+1)*(count+2)/2)+1
+        start = (6*count*(count+1)//2)+2
+        finish  = (6*(count+1)*(count+2)//2)+1
 
-        if(start >= n) and (finish <= n):
+        if(start <= n) and (finish >= n):
             break
         else:
             count += 1
 
-    return count+1
+    return count+2
 
 
 n = int(input())
