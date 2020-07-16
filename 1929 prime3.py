@@ -2,7 +2,6 @@
 #20200716
 
 def prime3(start, end):
-    P = []
     for i in range(start, end+1):
         if i == 1:
             mark = 1
@@ -12,10 +11,7 @@ def prime3(start, end):
             if i % k == 0 or i==1:
                 mark = 1
         if mark == 0:
-            P.append(i)
-            
-    for i in range(len(P)):
-        print(P[i])
+            print(i)
 
     
 
