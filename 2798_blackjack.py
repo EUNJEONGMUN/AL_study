@@ -1,6 +1,6 @@
 #2798 블랙잭
 #20200716
-
+'''
 def blackjack(n,A,M):
     A.sort()
     p,q,r=0,1,2
@@ -21,6 +21,27 @@ def blackjack(n,A,M):
 
 
     return A[p]+A[q]+A[r]
+'''
+def blackjack2(n,A,M):
+    A.sort()
+    p,q,r = 0,1,2
+
+    while A[p]+A[q]+A[r]<M and p<q<r<n:
+        r+=1
+        if A[p]+A[q]+A[r]>M:
+            return A[p]+A[q]+A[r-1]
+        q+=1
+        if A[p]+A[q]+A[r]>M:
+            return A[p]+A[q-1]+A[r]
+        p+=1
+        if A[p]+A[q]+A[r]>M:
+            return A[p-1]+A[q]+A[r]
+
+
+    return A[p]+A[q]+A[r]
+
+
+
 
 
 
