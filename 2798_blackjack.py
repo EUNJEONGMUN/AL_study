@@ -5,7 +5,7 @@ def blackjack(n,A,M):
     A.sort()
     p,q,r=0,1,2
         
-    while A[p]+A[q]+A[r]<=M and p<q<r<n:
+    while A[p]+A[q]+A[r]<M and p<q<r<n:
         if r!=n-1:
             r+=1
             if A[p]+A[q]+A[r]>M:
