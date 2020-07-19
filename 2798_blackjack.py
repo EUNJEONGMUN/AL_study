@@ -33,6 +33,7 @@ def blackjack2(n,A,M):
         q+=1
         if A[p]+A[q]+A[r]>M:
             return A[p]+A[q-1]+A[r]
+        
         p+=1
         if A[p]+A[q]+A[r]>M:
             return A[p-1]+A[q]+A[r]
