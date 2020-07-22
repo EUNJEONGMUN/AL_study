@@ -47,41 +47,17 @@ def blackjack2(n,A,M):
 
 
 def blackjack3(n,A,M):
-    A.sort()
-    p,q,r = 0,1,2
-    sub = M-(A[0]+A[1]+A[2])
-    sum_pqr = A[0]+A[1]+A[2]
+    sum_my = 0   # 세 수의 합
+    for i in range(n-2): #첫 번째 원소
+        for j in range(i+1,n-1): # 두 번째 원소
+            for k in range(j+1,n): # 세 번째 원소
+                if A[i]+A[j]+A[k]<=M: # 합이 M보다 같거나 작다면
+                    sum_my = max(sum_my,A[i]+A[j]+A[k]) #원래 sum_my에 있던 수와 비교하여 더 큰수를 sum_my에 저
 
-    while True:
-        if ((A[p]+A[q]+A[r])>=M) and (p==n-3):
-            return sum_pqr
-        if r!=n-1:
-            r+=1
-            if sub>M-(A[p]+A[q]+A[r])>=0:
-                sub = M-(A[p]+A[q]+A[r])
-                sum_pqr = M-sub
-        elif q!=n-2:
-            q+=1
-            if sub>M-(A[p]+A[q]+A[r])>=0:
-                sub = M-(A[p]+A[q]+A[r])
-                sum_pqr = M-sub
-        else:
-            p+=1
-            if sub>M-(A[p]+A[q]+A[r]>=0):
-                sub = M-(A[p]+A[q]+A[r])
-                sum_pqr = M-sub
-    
+    return sum_my
 
-
-def blackjack4(n,A,M):
-    A.sort()
-    sum_pqr = A[0]+A[1]+A[2]
-    while True:
-        if r!=n-1:
-            r+=1
             
             
-        
 
 n,M = input().split()
 n,M = int(n), int(M)
