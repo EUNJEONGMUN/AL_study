@@ -2,19 +2,49 @@
 #20200723
 
 def chess(N,M,L):
-    different = 0
-    want1 = [[WBWBWBWB],[BWBWBWBW],[WBWBWBWB],[BWBWBWBW],[WBWBWBWB],[BWBWBWBW],[WBWBWBWB],[BWBWBWBW]]
-    want2 = [[BWBWBWBW],[WBWBWBWB],[BWBWBWBW],[WBWBWBWB],[BWBWBWBW],[WBWBWBWB],[BWBWBWBW],[WBWBWBWB]]
-    count_list = []
-
-
-    for a in range(8):   # 시작점 L[a][b]
+    min_count = 64
+    
+    for a in range(N-7):
         for b in range(M-7):
-            for c in range(8):
-                for d in range(8):    # c -> 01234567
+            count1 = 0
+            count2 = 0
+            for c in range(a,a+8):
+                for d in range(b,b+8):
 
-                    if want1[a][b][d] == L
+                    if c%2==0 and d%2==0:
+                        if L[c][d]=='B':
+                            count1+=1
+                    elif c%2==0 and d%2==1:
+                        if L[c][d]=='W':
+                            count1+=1
+                    elif c%2==1 and d%2==0:
+                        if L[c][d]=='W':
+                            count1+=1
+                    else: 
+                        if L[c][d]=='B':
+                            count1+=1
 
+            for c in range(a,a+8):
+                for d in range(b,b+8):
+
+                    if c%2==0 and d%2==0:
+                        if L[c][d]=='W':
+                            count2+=1
+                    elif c%2==0 and d%2==1:
+                        if L[c][d]=='B':
+                            count2+=1
+                    elif c%2==1 and d%2==0:
+                        if L[c][d]=='B':
+                            count2+=1
+                    else:
+                        if L[c][d]=='W':
+                            count2+=1
+
+
+            min_count = min(min_count, count1, count2)
+
+    print(min_count)
+                        
                 
 
 
