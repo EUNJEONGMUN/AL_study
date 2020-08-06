@@ -31,7 +31,7 @@ def solution(n,T):
 
 
 
-n = int(input())  #n명L
+n = int(input())  #n명
 T = []
 for i in range(n):
     T.append(list(map(int,input().split())))
