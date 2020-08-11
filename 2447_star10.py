@@ -39,7 +39,7 @@ star_10(n)
 
 def stars(n):
     matrix=[]
-    for i in range(3 * len(n)):
+    for i in range(3 * len(n)): # 입력한 수 만큼의 길이
         if i // len(n) == 1:
             matrix.append(n[i % len(n)] + " " * len(n) + n[i % len(n)])
         else:
